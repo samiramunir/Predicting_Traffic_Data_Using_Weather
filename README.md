@@ -16,9 +16,7 @@ As a resident, I have always noticed that traffic seemed to be just a bit worse 
 
 **Some Decisions to Simplify the Process:**
 
-1) I decided to narrow down the scope of the project to the times between 6am-8pm.
-
-  * The assumption being that during these hours commuters are most active. As such any effect of weather should be more pronounced during this window.
+1) I decided to narrow down the scope of the project to the times between 6am-8pm. The assumption being that during these hours commuters are most active. As such any effect of weather should be more pronounced during this window.
 
 2) For the scope of the project I also decided to narrow down analysis to the total daily volume for NYC
 
@@ -46,9 +44,7 @@ I ran pearson correlations analysis on all of the features and observed the foll
 
 **Model:**
 
-My target variable - The total daily volume is a count variable and as such we cannot use Ordinary Least Squares Regression.
-For count variables that follow a poisson distribution it is common to use Poisson Regression.
-However the poisson regression assumes that the variance will be equal to the mean of the distribution. This in our case is not true. As we saw before when compared mean and variance. This is called overdispersion. Our variance is over 500 times the mean. That is a lot of variation. For these kinds of distribution the next GLM option is to try Negative Binomial Regression (NBR).
+My target variable - `Total_Daily_Volume` is a count variable. Count variables usually follow a poisson distribution and the appropriate regression for such a distribution is a  Generalized Linear Model (GLM) called Poisson Regression. However the poisson regression assumes that the variance of the data will be equal to the mean of the distribution. This in our case is not true. Our variance is over 500 times the mean. That is a lot of variation. For these kinds of distribution the next GLM option is to try Negative Binomial Regression (NBR). 
 
 Explanations for NLB: 
 https://dius.com.au/2017/08/03/using-statsmodels-glms-to-model-beverage-consumption/
