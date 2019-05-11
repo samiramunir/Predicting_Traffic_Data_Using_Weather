@@ -1,10 +1,10 @@
 # Predicting_Traffic_Data_Using_Weather
 
-**Motivation:** 
+**Motivation:**
 
 New York City is the third most congested city in the world in terms of traffic and the second worst in the United States. https://ny.curbed.com/2018/2/6/16979696/new-york-city-traffic-congestion-second-worst
 
-As a resident, I have always noticed that traffic seemed to be just a bit worse during bad weather conditions and wondered how much (if any) statistically significant impact weather has on traffic. I chose to test this theory by analyzing traffic volume count data set from NYC OPEN Data from 2012-2018 (TONS of MISSING DATA). I also collected daily weather data from www.wunderground.com.
+As a resident, I have always noticed that traffic seemed to be just a bit worse during bad weather conditions and wondered how much (if any) statistically significant impact weather has on traffic. I chose to test this theory by analyzing traffic volume count data set from NYC OPEN Data from 2012-2018 (TONS of MISSING DATA) against daily weather data collected at the Laguardia Airport Station from  www.wunderground.com.
 
 **Null Hypothesis:** Weather does not have statistically significant impact on traffic volume in NYC.
 
@@ -12,7 +12,10 @@ As a resident, I have always noticed that traffic seemed to be just a bit worse 
 
 **Test:** Test hypothesis by running a regression of traffic volument data against weather parameters. Fail to reject null hypothesis if the coefficients are statistically significant and the model is reliable.
 
+EDA:
 
+The traffic volume data
+![](media/Hourly_Traffic_Volume.png)
 
 **Some Decisions to Simplify the Process:**
 
@@ -30,9 +33,9 @@ Although I am not doing time series analysis due to a lot of missing data. I am 
 `day_of_week` - Categorical - The numeric ID for the day of the week. With Monday= 0 and Sunday =6
 `is_weekday` - Categorical - 1 = weekday, 0 = weekend.
 
-**Feature Selection:** 
+**Feature Selection:**
 
-I ran pearson correlations analysis on all of the features and observed the following: 
+I ran pearson correlations analysis on all of the features and observed the following:
 
 * Total_Daily_Volume and Mean_Daily_Volume have almost identical correlation number with the features.
   * So I picked Total Daily Volume as the target.
@@ -44,12 +47,12 @@ I ran pearson correlations analysis on all of the features and observed the foll
 
 **Model:**
 
-My target variable - `Total_Daily_Volume` is a count variable. Count variables usually follow a poisson distribution and the appropriate regression for such a distribution is a  Generalized Linear Model (GLM) called Poisson Regression. However the poisson regression assumes that the variance of the data will be equal to the mean of the distribution. This in our case is not true. Our variance is over 500 times the mean. That is a lot of variation. For these kinds of distribution the next GLM option is to try Negative Binomial Regression (NBR). 
+My target variable - `Total_Daily_Volume` is a count variable. Count variables usually follow a poisson distribution and the appropriate regression for such a distribution is a  Generalized Linear Model (GLM) called Poisson Regression. However the poisson regression assumes that the variance of the data will be equal to the mean of the distribution. This in our case is not true. Our variance is over 500 times the mean. That is a lot of variation. For these kinds of distribution the next GLM option is to try Negative Binomial Regression (NBR).
 
-Explanations for NLB: 
+Explanations for NLB:
 https://dius.com.au/2017/08/03/using-statsmodels-glms-to-model-beverage-consumption/
 
-Data sources: 
+Data sources:
 Traffic Volume: NYC OPEN Data
 
 Weather data:  https://www.wunderground.com/history/monthly/us/ny/new-york-city/KLGA/date/2015-12
