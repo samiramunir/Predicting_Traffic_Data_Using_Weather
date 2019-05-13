@@ -30,7 +30,9 @@ The traffic volume data
 Although I am not doing time series analysis due to a lot of missing data. I am aware that time definitely has an effect on traffic. To capture some of these temporal variability I extracted some new categorical features.
 
 `Month_of_year` - Categorical - The numeric ID for the month of the year
+
 `day_of_week` - Categorical - The numeric ID for the day of the week. With Monday= 0 and Sunday =6
+
 `is_weekday` - Categorical - 1 = weekday, 0 = weekend.
 
 **Feature Selection:**
