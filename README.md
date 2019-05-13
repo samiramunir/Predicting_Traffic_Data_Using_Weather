@@ -15,7 +15,7 @@ As a resident, I have always noticed that traffic seemed to be just a bit worse 
 EDA:
 
 The traffic volume data
-![](media/Hourly_Traffic_Volume.png)
+![](media/Hourly_Traffic_Volume2.png)
 
 **Some Decisions to Simplify the Process:**
 
